@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```bash
 npm i react-icons
 
-npx shadcn-ui@latest add card
+npx shadcn-ui@latest add card form input button
 ```
 
 ## Getting Started
