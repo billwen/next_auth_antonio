@@ -3,9 +3,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Components
 
 ```bash
-npm i react-icons @prisma/client @auth/prisma-adapter
+npm i react-icons @prisma/client @auth/prisma-adapter bcrypt
 
-npm i -D prisma
+npm i -D prisma @types/bcrypt
 
 npx shadcn-ui@latest add card form input button
 
