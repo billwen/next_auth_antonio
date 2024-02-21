@@ -3,9 +3,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Components
 
 ```bash
-npm i react-icons
+npm i react-icons @prisma/client @auth/prisma-adapter
+
+npm i -D prisma
 
 npx shadcn-ui@latest add card form input button
+
+npx prisma init
+npx prisma generate
+npx prisma db push
 ```
 
 ## Getting Started
