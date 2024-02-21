@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Components
 
 ```bash
-npm i react-icons @prisma/client @auth/prisma-adapter bcrypt
+npm i react-icons @prisma/client @auth/prisma-adapter bcrypt next-auth@beta
 
 npm i -D prisma @types/bcrypt
 
@@ -12,6 +12,8 @@ npx shadcn-ui@latest add card form input button
 npx prisma init
 npx prisma generate
 npx prisma db push
+
+openssl rand -hex 32
 ```
 
 ## Getting Started
