@@ -13,6 +13,9 @@ npx prisma init
 npx prisma generate
 npx prisma db push
 
+# reset the database
+npx prisma migrate reset --force
+
 openssl rand -hex 32
 ```
 

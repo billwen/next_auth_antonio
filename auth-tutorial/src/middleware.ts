@@ -14,7 +14,7 @@ export default auth((req) => {
 
   if (isApiAuthRoute) {
     // Allow API routes to be accessed without authentication, Do nothing
-    return null;
+    return;
   }
 
   if (isAuthRoute) {
@@ -23,7 +23,7 @@ export default auth((req) => {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
 
-    return null;
+    return;
   }
 
   if (!isLoggedIn && !isPublicRoute) {
@@ -31,7 +31,7 @@ export default auth((req) => {
     return Response.redirect(new URL("/auth/login", nextUrl));
   }
 
-  return null;
+  return;
 });
 
 // Optional, don't invoke the middleware on some paths
