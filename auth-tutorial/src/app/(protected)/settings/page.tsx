@@ -4,6 +4,8 @@ const SettingsPage = async () => {
 
   const session = await auth();
 
+  const role = session?.user?.role;
+
   return (
     <div>
       {JSON.stringify(session, null, 2)}
