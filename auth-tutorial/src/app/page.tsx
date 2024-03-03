@@ -1,7 +1,7 @@
-import { Poppins } from "next/font/google";
+import {Poppins} from "next/font/google";
 import {Button} from "@/components/ui/button";
 
-import { cn } from "@/lib/utils";
+import {cn} from "@/lib/utils";
 import {LoginButton} from "@/components/auth/login-button";
 
 const font = Poppins({
@@ -21,7 +21,7 @@ export default function Home() {
         </p>
 
         <div>
-          <LoginButton>
+          <LoginButton mode="modal" asChild>
             <Button variant="secondary" size="lg" >
               Sign in
             </Button>

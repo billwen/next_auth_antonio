@@ -1,6 +1,6 @@
 "use server";
 
-import {z} from "zod";
+import * as z from "zod";
 import {LoginSchema} from "@/schemas";
 import {signIn} from "@/auth";
 import {DEFAULT_LOGIN_REDIRECT} from "@/routes";
@@ -12,7 +12,7 @@ import {getTwoFactorTokenByEmail} from "@/data/two-factor-token";
 import {db} from "@/lib/db";
 import {getTwoFactorConfirmationByUserId} from "@/data/two-factor-confirmation";
 
-export const login = async (values: z.infer<typeof LoginSchema>) => {
+export const login = async (values: z.infer<typeof LoginSchema>, callbackUrl?: string | null) => {
   console.log({login: values});
 
   // Validate the schema
@@ -84,10 +84,11 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   try {
+    console.log({email, password, callbackUrl});
     await signIn("credentials", {
       email,
       password,
-      redirectTo: DEFAULT_LOGIN_REDIRECT
+      redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT
     });
   } catch (e) {
     if (e instanceof AuthError) {

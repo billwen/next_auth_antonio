@@ -17,9 +17,9 @@ import {FormSuccess} from "@/components/form-sucess";
 import {login} from "@/actions/login";
 
 
-
 export const LoginForm = () => {
   const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl");
   const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ? "Your account is not linked with any social account." : undefined;
 
   const [showTwoFactor, setShowTwoFactor] = useState(false);
@@ -40,11 +40,9 @@ export const LoginForm = () => {
     setSuccess(undefined);
     setShowTwoFactor(false);
 
-    console.log({login: data});
-
     startTransition(async () => {
       try {
-        const result = await login(data);
+        const result = await login(data, callbackUrl);
         if ("error" in result) {
           form.reset();
           setError(result.error);
