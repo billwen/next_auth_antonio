@@ -14,7 +14,7 @@ const SettingsPage = () => {
   }
 
   return (
-    <div>
+    <div className="bg-white p-10 rounded-xl">
       {JSON.stringify(session, null, 2)}
 
       <form>
