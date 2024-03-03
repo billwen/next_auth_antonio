@@ -7,7 +7,7 @@ npm i react-icons @prisma/client @auth/prisma-adapter bcrypt next-auth@beta
 
 npm i -D prisma @types/bcrypt
 
-npx shadcn-ui@latest add card form input button dropdown-menu avatar
+npx shadcn-ui@latest add card form input button dropdown-menu avatar badge
 
 npx prisma init
 npx prisma generate

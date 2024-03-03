@@ -9,6 +9,7 @@ import {getTwoFactorConfirmationByUserId} from "@/data/two-factor-confirmation";
 
 export type ExtendedUser = DefaultSession["user"] & {
   role: UserRole;
+  isTwoFactorEnabled: boolean;
 };
 
 // declare module "@auth/core" {
@@ -103,6 +104,10 @@ export const {
         session.user.role = token.role;
       }
 
+      if (session.user) {
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
+      }
+
       console.log({session});
       return session;
     },
@@ -115,6 +120,7 @@ export const {
       const existingUser = await getUserById(token.sub);
       if (existingUser) {
         token.role = existingUser.role as UserRole;
+        token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
       }
 
       return token;
