@@ -22,4 +22,14 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
     subject: "Reset your password on Guludoc.com",
     html: `<p>Click to <a href="${resetLink}">Reset your password</a>`
   });
-}
+};
+
+export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
+
+  await resend.emails.send({
+    from: "no-reply@guludoc.com",
+    to: email,
+    subject: "2FA Code",
+    html: `<p>Your 2FA code:  <b>${token}</b>`
+  });
+};

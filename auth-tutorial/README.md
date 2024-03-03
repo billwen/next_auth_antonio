@@ -57,4 +57,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Error
 ### 1. Prisma throws an exception, saying  Please install openssl-1.1.x
 Solution:
-Added the engines property in the package.json. [from jr](https://www.answeroverflow.com/m/1175401667978604575)
+[Install openssl 1.1.1f](https://askubuntu.com/questions/1126893/how-to-install-openssl-1-1-1-and-libssl-package#answer-1127228)

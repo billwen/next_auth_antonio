@@ -14,6 +14,7 @@ export const LoginButton: FC<LoginButtonProps> = ({ children, mode = "redirect",
   const router = useRouter();
 
   const onClick = () => {
+    console.log(`Click login`);
     if (mode == "redirect") {
       router.push("/auth/login");
       return;
@@ -31,7 +32,9 @@ export const LoginButton: FC<LoginButtonProps> = ({ children, mode = "redirect",
   }
 
   return (
-    <span className="cursor-pointer" onClick={onClick}>
+    <span className="cursor-pointer" onClick={() => {
+      onClick();
+    }}>
       {children}
     </span>
   );
