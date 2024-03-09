@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {cn} from "@/lib/utils";
+import {ThemeProvider} from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,10 +21,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
       <body className={cn(
-        "min-h-screen min-w-screen font-sans antialiased",
+        "min-h-screen min-w-screen font-sans antialiased bg-white dark:bg-[#313338]",
         inter.className
       )}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange storageKey="next-discord-theme">
+          {children}
+        </ThemeProvider>
+
       </body>
       </html>
     </ClerkProvider>
