@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme-provider";
+import {ModalProvider} from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         inter.className
       )}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange storageKey="next-discord-theme">
+          <ModalProvider />
           {children}
         </ThemeProvider>
 
